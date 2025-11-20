@@ -1,6 +1,6 @@
 import { clerkClient } from "@clerk/clerk-sdk-node";
 
-export default async function POST(request: Request) {
+export async function POST(request: Request) {
   const {
     userId,
     toggleAdmin,
