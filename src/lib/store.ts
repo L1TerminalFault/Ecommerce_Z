@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create, StoreApi, UseBoundStore } from "zustand";
 
 type Product = {
   _id: string;
@@ -9,7 +9,14 @@ type Product = {
   category: string;
 };
 
-export const useProductStore = create((set) => ({
+export const useProductStore: UseBoundStore<
+  StoreApi<{
+    currentProduct: Product;
+    cart: Product[];
+    setCurrentProduct: (value: Product) => void;
+    setCart: (value: Product[]) => void;
+  }>
+> = create((set) => ({
   currentProduct: {
     _id: "",
     title: "",

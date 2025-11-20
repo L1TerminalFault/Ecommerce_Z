@@ -101,7 +101,13 @@ export default function Checkout() {
           </div>
         </>
       ) : (
-        <div>{notify ? "Orders placed successfully" : "No items in cart"}</div>
+        <div>
+          {error
+            ? error
+            : notify
+              ? "Orders placed successfully"
+              : "No items in cart"}
+        </div>
       )}
     </div>
   );
